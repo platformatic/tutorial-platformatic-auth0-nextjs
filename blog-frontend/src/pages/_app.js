@@ -3,6 +3,8 @@ import '@/styles/globals.css'
 import { Auth0Provider } from '@auth0/auth0-react'
 import Router from 'next/router'
 
+import Layout from '@/components/layout'
+
 const onRedirectCallback = (appState) => {
   Router.replace(appState?.returnTo || '/');
 }
@@ -19,7 +21,9 @@ export default function App({ Component, pageProps }) {
         scope: process.env.NEXT_PUBLIC_AUTH0_SCOPE
       }}
     >
-      <Component {...pageProps} />
+      <Layout>
+        <Component {...pageProps} />
+      </Layout>
     </Auth0Provider>
   )
 }
