@@ -29,6 +29,12 @@ export default function Layout({ children }) {
               <p>
                 <strong>Logged in as {user.name}</strong>
               </p>
+              <Link
+                href="/write"
+                className="bg-green-400 text-gray-800 rounded p-3 inline-block mr-4"
+              >
+                Write new post
+              </Link>
               <LogoutButton />
             </>
           ) : (
