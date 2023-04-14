@@ -1,11 +1,23 @@
 import { useAuth0 } from '@auth0/auth0-react'
+import { useEffect } from 'react'
 import Link from 'next/link'
 
 import LoginButton from '@/components/login'
 import LogoutButton from '@/components/logout'
+import useBlogApi from '@/hooks/use-blog-api'
 
 export default function Layout({ children }) {
   const { user, error, isAuthenticated, isLoading } = useAuth0()
+
+  const { makeRequest, data: authorPostsCount } = useBlogApi([])
+
+  useEffect(() => {
+    if (!isAuthenticated) {
+      return
+    }
+
+    makeRequest('/posts/count')
+  }, [isAuthenticated])
 
   const wrapperClasses = "prose max-width-xl mx-auto my-8"
 
@@ -27,7 +39,7 @@ export default function Layout({ children }) {
           {isAuthenticated ? (
             <>
               <p>
-                <strong>Logged in as {user.name}</strong>
+                <strong>Logged in as {user.name}{authorPostsCount?.count !== undefined && (<em>({authorPostsCount.count} posts)</em>)}</strong>
               </p>
               <Link
                 href="/write"
