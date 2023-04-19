@@ -25,5 +25,13 @@
   },
   "types": {
     "autogenerate": true
+  },
+  "authorization": {
+    "jwt": {
+      "namespace": "{PLT_AUTHORIZATION_JWT_NAMESPACE}",
+      "jwks": {
+        "allowedDomains": ["{PLT_AUTHORIZATION_JWT_JWKS_ALLOWED_DOMAINS}"]
+      }
+    }
   }
 }
