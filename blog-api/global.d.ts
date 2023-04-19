@@ -1,10 +1,10 @@
 import { Entity } from '@platformatic/sql-mapper';
 import graphqlPlugin from '@platformatic/sql-graphql'
-import { EntityTypes,  } from './types'
+import { EntityTypes, Post } from './types'
 
 declare module 'fastify' {
   interface FastifyInstance {
-    getSchema<T extends string>(schemaId: T): {
+    getSchema<T extends 'Post'>(schemaId: T): {
       '$id': string,
       title: string,
       description: string,
@@ -19,6 +19,6 @@ declare module 'fastify' {
 
 declare module '@platformatic/sql-mapper' {
   interface Entities {
-    
+    post: Entity<Post>,
   }
 }

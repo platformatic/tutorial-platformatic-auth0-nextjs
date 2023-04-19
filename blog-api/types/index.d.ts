@@ -1,7 +1,7 @@
-
+import { Post } from './Post'
   
   interface EntityTypes  {
-    
+    Post:Post
   }
   
-  export { EntityTypes , }
+  export { EntityTypes ,Post }
