@@ -7,7 +7,9 @@
       "level": "{PLT_SERVER_LOGGER_LEVEL}"
     },
     "cors": {
-      "origin": "{PLT_SERVER_CORS_ORIGIN}"
+      "origin": {
+        "regexp": "{PLT_SERVER_CORS_ORIGIN}"
+      }
     }
   },
   "db": {
@@ -16,7 +18,7 @@
     "openapi": true
   },
   "migrations": {
-    "dir": "migrations"
+    "dir": "migrations/{PLT_MIGRATIONS_DB_TYPE}"
   },
   "plugins": {
     "paths": [
