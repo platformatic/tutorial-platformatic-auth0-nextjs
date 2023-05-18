@@ -16,7 +16,7 @@
     "openapi": true
   },
   "migrations": {
-    "dir": "migrations"
+    "dir": "migrations/{PLT_MIGRATIONS_DB_TYPE}"
   },
   "plugins": {
     "paths": [
