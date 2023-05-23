@@ -10,9 +10,9 @@ export default function BlogPost({ id, title, body, authorUserId, authorName, cr
     <div>
       <h2>{title}</h2>
       <p>
-        <em>Published {new Date(Number(createdAt)).toUTCString()}</em><br />
+        <em>Published {new Date(isNaN(createdAt) ? createdAt : Number(createdAt)).toUTCString()}</em><br />
         {createdAt !== updatedAt && (
-          <><em>Updated {new Date(Number(updatedAt)).toUTCString()}</em><br /></>
+          <><em>Updated {new Date(isNaN(updatedAt) ? updatedAt : Number(updatedAt)).toUTCString()}</em><br /></>
         )}
         <em>By {authorName}</em>
       </p>
